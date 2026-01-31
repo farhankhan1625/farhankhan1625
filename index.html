@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheikh Farhan Khan | Portfolio</title>
+    <style>
+        :root {
+            --primary: #2c3e50; /* Deep Navy - Professional */
+            --accent: #27ae60;  /* Agri Green - Thematic */
+            --light: #ecf0f1;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://source.unsplash.com/1600x900/?agriculture,technology');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #219150;
+        }
+
+        /* Sections General */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        /* Projects Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .tag {
+            background: var(--light);
+            color: var(--primary);
+            padding: 3px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .date {
+            color: #777;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Sheikh Farhan Khan</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Agricultural Engineer & Innovator</h1>
+        <p>M.Tech Scholar at IIT Kharagpur | Bridging the gap between Sustainable Farming and Data Science</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a dedicated Agricultural Engineer driven by a passion for sustainable farming and agri-tech innovation. 
+            [cite_start]Currently, I am pursuing my <strong>M.Tech in Aquacultural Engineering at IIT Kharagpur</strong>[cite: 7, 8, 46].
+        </p>
+        <p>
+            [cite_start]My background includes graduating as a top-ranker (CGPA 8.26/10) from Dr. PDKV, Akola [cite: 54, 83][cite_start], and qualifying GATE 2025[cite: 12]. 
+            [cite_start]I have also been placed at <strong>TAFE as a Graduate Engineer Trainee</strong>[cite: 12].
+            I blend core engineering principles with modern tools like <strong>Machine Learning, GIS, and Python</strong> to solve complex agricultural problems.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        
+        <h3 style="margin-top: 0; color: #666;">Data Science & GIS</h3>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Autism Prediction via ML</h3>
+                <span class="tag">Python</span> <span class="tag">Machine Learning</span>
+                <p>Developed a supervised machine learning model to predict Autism Spectrum Disorder using clinical and behavioral data. [cite_start]Performed data preprocessing and feature selection using Python libraries. [cite: 59, 60, 61]</p>
+            </div>
+            <div class="card">
+                <h3>Waterbody Trend Analysis</h3>
+                <span class="tag">GIS</span> <span class="tag">Remote Sensing</span>
+                <p>Estimated spatial distribution of waterbodies in West Bengal at the block level using multi-temporal satellite data. [cite_start]Analyzed yearly trends using GIS-based spatial analysis. [cite: 63, 64]</p>
+            </div>
+            <div class="card">
+                <h3>Tourist Map & Route Analysis</h3>
+                <span class="tag">QGIS</span> <span class="tag">Spatial Analysis</span>
+                [cite_start]<p>Mapped and geolocated tourist destinations in Chhindwara district with route analysis using QGIS software. [cite: 68]</p>
+            </div>
+        </div>
+
+        <br><br>
+
+        <h3 style="margin-top: 0; color: #666;">Core Engineering & Design</h3>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Multi-Purpose Grain Cleaner</h3>
+                <span class="tag">Farm Machinery</span> <span class="tag">Product Design</span>
+                <p>Led the design and development of a semi-automated, small-capacity grain cleaner. [cite_start]Focused on reducing human effort for small-scale farmers and households. [cite: 14, 15, 67]</p>
+            </div>
+            <div class="card">
+                <h3>Automated Vegetable Transplanter</h3>
+                <span class="tag">Robotics</span> <span class="tag">Team Leadership</span>
+                <p>Served as Vice Captain for the TIFAN 2025 competition team. [cite_start]Contributed to the design of an automated vegetable transplanter. [cite: 24, 25, 81]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="timeline-item">
+            <h3>Manager, Innovation and Incubation Cell (IIC)</h3>
+            <div class="date">IIT Kharagpur | [cite_start]Dec 2025 - Present [cite: 17, 18, 19]</div>
+            <p>Leading initiatives to foster student innovation and entrepreneurship on campus.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Internship Trainee</h3>
+            <div class="date">ELU & AICRP on Post Harvest Engg, Akola | [cite_start]Sept 2024 - Dec 2024 [cite: 27, 28, 30]</div>
+            [cite_start]<p>Gained hands-on experience in post-harvest engineering techniques and food processing technologies. [cite: 70]</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Research Trainee</h3>
+            <div class="date">ICAR - IISWC, Kota | [cite_start]July 2024 [cite: 33, 36]</div>
+            [cite_start]<p>Studied watershed management techniques and utilized remote sensing tools like Google Earth Pro and QGIS for soil conservation. [cite: 75, 76]</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Social Media Manager</h3>
+            <div class="date">Gopali Youth Welfare Society | [cite_start]May 2022 - June 2024 [cite: 38, 39, 40]</div>
+            [cite_start]<p>Managed media content and led team initiatives for a youth welfare organization. [cite: 79]</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <span class="skill">Python (NumPy, Pandas)</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">GIS & Remote Sensing</span>
+            <span class="skill">AutoCAD & SolidWorks</span>
+            <span class="skill">C/C++</span>
+            <span class="skill">MATLAB</span>
+            <span class="skill">Farm Machinery Design</span>
+            <span class="skill">Social Media Marketing</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            [cite_start]<em>Source: [cite: 5, 86, 87, 88]</em>
+        </p>
+    </section>
+
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        <p>Open to opportunities in Agri-Tech, Data Analysis, and Farm Machinery R&D.</p>
+        <p>
+            [cite_start]📧 farhankhan162001@gmail.com [cite: 1]<br>
+            [cite_start]🔗 <a href="https://www.linkedin.com/in/farhankhan16" target="_blank">LinkedIn Profile</a> [cite: 3]<br>
+            [cite_start]📞 +91 7898600862 [cite: 2]
+        </p>
+        <p>&copy; 2026 Sheikh Farhan Khan</p>
+    </footer>
+
+</body>
+</html>
