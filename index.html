@@ -8,11 +8,11 @@
     <style>
         :root {
             /* Theme: Deep Ocean (Water) + Matrix (Data) */
-            --bg-dark: #0a192f;       /* Very dark navy */
-            --bg-card: #112240;       /* Lighter navy for cards */
-            --text-main: #ccd6f6;     /* Off-white text */
-            --text-muted: #8892b0;    /* Greyed text */
-            --accent: #64ffda;        /* Glowing Cyan/Teal (Data/GIS vibe) */
+            --bg-dark: #0a192f;       
+            --bg-card: rgba(17, 34, 64, 0.7); /* More transparent for glass effect */
+            --text-main: #ccd6f6;     
+            --text-muted: #8892b0;    
+            --accent: #64ffda;        
         }
 
         html {
@@ -25,11 +25,22 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
+            /* Dynamic Background Gradient */
+            background: linear-gradient(-45deg, #0a192f, #112240, #0a192f, #020c1b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* --- Navigation --- */
         nav {
-            background: rgba(10, 25, 47, 0.95);
+            background: rgba(10, 25, 47, 0.85);
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
@@ -39,6 +50,7 @@
             z-index: 100;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
         }
 
         .logo {
@@ -46,6 +58,7 @@
             font-size: 1.5rem;
             color: var(--accent);
             letter-spacing: 1px;
+            position: relative;
         }
 
         .nav-links a {
@@ -54,6 +67,7 @@
             margin-left: 30px;
             font-size: 0.9rem;
             transition: color 0.3s;
+            position: relative;
         }
 
         .nav-links a:hover {
@@ -68,35 +82,49 @@
             justify-content: center;
             padding: 0 10%;
             gap: 50px;
+            position: relative;
         }
 
         .hero-text {
             flex: 1;
-            animation: slideUp 1s ease-out;
+            z-index: 2;
         }
 
         .hero-img {
             flex: 1;
             display: flex;
             justify-content: center;
-            animation: fadeIn 2s ease-out;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
         /* Profile Photo Styling */
         .profile-frame {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%; /* Circle shape */
+            width: 300px;
+            height: 300px;
+            border-radius: 50%; 
             overflow: hidden;
             border: 3px solid var(--accent);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
             position: relative;
+            background: #112240;
         }
 
         .profile-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-frame:hover img {
+            transform: scale(1.1);
         }
 
         h1 {
@@ -107,10 +135,24 @@
         }
 
         h2.subtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent);
             margin-top: 10px;
-            font-weight: 400;
+            font-weight: 600;
+            min-height: 1.8rem; /* Prevents layout jump while typing */
+        }
+
+        /* Cursor for typing effect */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--accent);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         p.hero-desc {
@@ -131,12 +173,30 @@
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            z-index: -1;
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .btn:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+            color: var(--bg-dark);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
         }
 
         .btn-secondary {
@@ -149,13 +209,27 @@
              border-color: var(--text-main);
              color: var(--text-main);
              background: rgba(255,255,255,0.05);
+             box-shadow: none;
         }
 
-        /* --- Sections General --- */
+        /* --- Sections General & Scroll Reveal --- */
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             max-width: 1200px;
             margin: auto;
+        }
+
+        /* The hidden state for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        /* The active state when scrolled into view */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
@@ -189,15 +263,17 @@
             background: var(--bg-card);
             padding: 2rem;
             border-radius: 4px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             border-top: 2px solid transparent;
+            backdrop-filter: blur(5px); /* Glass effect */
         }
 
         .card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-10px);
             border-top: 2px solid var(--accent);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
         }
 
         .folder-icon {
@@ -244,6 +320,11 @@
             left: -6px;
             top: 0;
             background: var(--bg-dark);
+            transition: color 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            color: #fff;
         }
 
         .timeline-item h3 {
@@ -278,6 +359,14 @@
             border-radius: 4px;
             font-family: monospace;
             font-size: 0.9rem;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .skill:hover {
+            border-color: var(--accent);
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateX(5px);
         }
 
         /* --- Footer --- */
@@ -289,29 +378,19 @@
             margin-top: 50px;
         }
 
-        /* --- Animations --- */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
             header {
                 flex-direction: column-reverse;
                 text-align: center;
                 padding-top: 100px;
+                min-height: auto;
             }
             .hero-desc { margin: 20px auto 40px auto; }
             .section-title::after { width: 100px; }
-            .profile-frame { width: 200px; height: 200px; margin-bottom: 30px;}
+            .profile-frame { width: 220px; height: 220px; margin-bottom: 30px;}
             nav { padding: 1rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; } 
         }
     </style>
 </head>
@@ -328,10 +407,11 @@
     </nav>
 
     <header>
-        <div class="hero-text">
+        <div class="hero-text reveal active">
             <span style="color: var(--accent); font-family: monospace;">Hi, my name is</span>
             <h1>Sheikh Farhan Khan.</h1>
-            <h2 class="subtitle">I analyze earth & water with data.</h2>
+            <h2 class="subtitle"><span class="typewriter-text"></span><span class="cursor">|</span></h2>
+            
             <p class="hero-desc">
                 Agricultural Engineer & M.Tech Scholar at IIT Kharagpur. I specialize in 
                 <strong>Aquacultural Engineering, GIS Spatial Analysis, and Machine Learning</strong> 
@@ -341,14 +421,14 @@
             <a href="resume.pdf" class="btn btn-secondary" target="_blank">Resume.pdf</a>
         </div>
         
-        <div class="hero-img">
+        <div class="hero-img reveal active">
             <div class="profile-frame">
                 <img src="profile.jpeg" alt="Sheikh Farhan Khan Profile">
             </div>
         </div>
     </header>
 
-    <section id="about">
+    <section id="about" class="reveal">
         <div class="section-title">
             <h2><span style="color:var(--accent); font-family:monospace; font-size:1.5rem">01.</span> About Me</h2>
         </div>
@@ -367,7 +447,7 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="reveal">
         <div class="section-title">
             <h2><span style="color:var(--accent); font-family:monospace; font-size:1.5rem">02.</span> Featured Projects</h2>
         </div>
@@ -411,7 +491,7 @@
         </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="reveal">
         <div class="section-title">
             <h2><span style="color:var(--accent); font-family:monospace; font-size:1.5rem">03.</span> Where I've Worked</h2>
         </div>
@@ -445,7 +525,7 @@
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="reveal">
         <div class="section-title">
             <h2><span style="color:var(--accent); font-family:monospace; font-size:1.5rem">04.</span> Technical Skills</h2>
         </div>
@@ -461,7 +541,7 @@
         </div>
     </section>
 
-    <section id="contact" style="text-align: center; padding-bottom: 100px;">
+    <section id="contact" style="text-align: center; padding-bottom: 100px;" class="reveal">
         <span style="color: var(--accent); font-family: monospace;">04. What's Next?</span>
         <h2 style="font-size: 3rem; margin: 10px 0 30px 0; color: #e6f1ff;">Get In Touch</h2>
         <p style="max-width: 600px; margin: 0 auto 50px auto; color: var(--text-muted);">
@@ -474,6 +554,69 @@
         <p>Designed & Built by Sheikh Farhan Khan</p>
         <a href="https://www.linkedin.com/in/farhankhan16" target="_blank" style="color: var(--accent); text-decoration: none;">LinkedIn Profile</a>
     </footer>
+
+    <script>
+        // 1. SCROLL REVEAL ANIMATION
+        // This looks for any element with class 'reveal' and adds 'active' when it comes into view
+        const reveals = document.querySelectorAll(".reveal");
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add("active");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+
+
+        // 2. TYPING EFFECT
+        const textElement = document.querySelector(".typewriter-text");
+        const texts = ["I analyze earth & water with data.", "I build sustainable agri-tech.", "I map the world with GIS."];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            textElement.textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    // Start deleting
+                    deleteText(); 
+                }, 2000); // Wait 2 seconds before deleting
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        })();
+
+        function deleteText() {
+            currentText = texts[count];
+            letter = currentText.slice(0, --index);
+            textElement.textContent = letter;
+            
+            if (letter.length === 0) {
+                count++;
+                index = 0;
+                setTimeout(type, 500); // Wait before typing next sentence
+            } else {
+                setTimeout(deleteText, 50); // Deleting speed
+            }
+        }
+    </script>
 
 </body>
 </html>
