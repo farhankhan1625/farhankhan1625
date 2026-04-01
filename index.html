@@ -1,282 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheikh Farhan Khan | Agri-Tech & IoT Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheikh Farhan Khan | IoT & Agri-Tech Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Professional Tech/Agri Palette */
+            --bg-main: #0f172a;        /* Deep slate */
+            --bg-surface: #1e293b;     /* Lighter slate for cards */
+            --text-primary: #f8fafc;   /* Crisp white */
+            --text-secondary: #94a3b8; /* Soft gray */
+            --accent: #10b981;         /* Emerald green (Tech + Agriculture) */
+            --accent-hover: #059669;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
 
-<style>
-:root {
-    --bg-dark: #0a192f;
-    --bg-card: rgba(17, 34, 64, 0.7);
-    --text-main: #ccd6f6;
-    --text-muted: #8892b0;
-    --accent: #64ffda;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    color: var(--text-main);
-    background: linear-gradient(-45deg, #0a192f, #112240, #0a192f, #020c1b);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-/* NAV */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.2rem 5%;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(10px);
-}
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
 
-.logo {
-    color: var(--accent);
-    font-weight: 700;
-}
+        .logo {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
 
-.nav-links a {
-    color: var(--text-main);
-    margin-left: 20px;
-    text-decoration: none;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-.nav-links a:hover {
-    color: var(--accent);
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
 
-/* HERO */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 10%;
-    gap: 50px;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.hero-text {
-    flex: 1;
-}
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--accent);
+            padding: 0.75rem 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
 
-.hero-img {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+        }
 
-.profile-frame {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--accent);
-}
+        .btn:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
 
-.profile-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        /* --- LAYOUT & SECTIONS --- */
+        section {
+            padding: 6rem 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-h1 {
-    font-size: 3rem;
-}
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.subtitle {
-    color: var(--accent);
-}
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: var(--border-color);
+            flex: 1;
+        }
 
-.hero-desc {
-    color: var(--text-muted);
-    margin: 20px 0;
-}
+        /* --- HERO SECTION --- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 0 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
 
-.btn {
-    border: 1px solid var(--accent);
-    padding: 10px 20px;
-    color: var(--accent);
-    text-decoration: none;
-    margin-right: 10px;
-}
+        .hero-text {
+            flex: 1;
+            animation: fadeIn 1s ease-out;
+        }
 
-.btn:hover {
-    background: var(--accent);
-    color: black;
-}
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
 
-/* SECTIONS */
-section {
-    padding: 80px 10%;
-}
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
 
-/* PROJECTS */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
+        .hero-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+        }
 
-.card {
-    background: var(--bg-card);
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.2s ease-out;
+        }
 
-.card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px -20px rgba(100,255,218,0.3);
-}
+        .profile {
+            width: 320px;
+            height: 320px;
+            border-radius: 20px; /* Switched from circle to modern rounded square */
+            overflow: hidden;
+            position: relative;
+        }
 
-.folder-icon {
-    font-size: 2rem;
-}
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            transform: translate(15px, 15px);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
 
-.tech-stack span {
-    margin-right: 10px;
-    font-size: 0.8rem;
-}
+        .profile:hover::before {
+            transform: translate(10px, 10px);
+        }
 
-/* SKILLS */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(20%) contrast(110%); /* Professional photo treatment */
+            transition: filter 0.3s ease;
+        }
 
-.skill {
-    background: rgba(100,255,218,0.1);
-    padding: 8px 12px;
-    border-radius: 5px;
-    color: var(--accent);
-}
+        .profile:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: var(--text-muted);
-}
+        /* --- PROJECTS --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
-    header{
-        flex-direction: column;
-    }
-}
-</style>
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech span {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* --- SKILLS --- */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact .section-title {
+            justify-content: center;
+        }
+
+        .contact .section-title::after {
+            display: none;
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* --- ANIMATIONS & MEDIA QUERIES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 8rem;
+                justify-content: center;
+            }
+            
+            .hero-desc {
+                margin: 0 auto 2.5rem auto;
+            }
+
+            .hero-img {
+                margin-bottom: 2rem;
+            }
+            
+            .profile {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .nav-links {
+                display: none; /* In a real app, you'd add a hamburger menu here */
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">SFK.</div>
-    <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-
-<header>
-    <div class="hero-text">
-        <h1>Sheikh Farhan Khan</h1>
-        <h2 class="subtitle">Agri-Tech | IoT | ML Engineer</h2>
-
-        <p class="hero-desc">
-            M.Tech Scholar at IIT Kharagpur specializing in IoT, Embedded Systems, 
-            Aquacultural Engineering, and Machine Learning.
-        </p>
-
-        <a href="#projects" class="btn">Projects</a>
-        <a href="resume.pdf" class="btn">Resume</a>
-        <a href="https://github.com/yourusername" class="btn">GitHub</a>
-    </div>
-
-    <div class="hero-img">
-        <div class="profile-frame">
-            <img src="profile.jpeg">
+    <nav>
+        <div class="logo">SFK<span>.</span></div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-grid">
-
-        <div class="card">
-            <span class="folder-icon">🚤</span>
-            <h3>Smart RC Boat for Automated Water Sampling</h3>
-            <p>
-                Developing an MCU-based IoT system for a GPS-guided RC boat enabling 
-                multi-location, multi-depth sampling and real-time monitoring of pH, turbidity, and DO.
+    <header id="about">
+        <div class="hero-text">
+            <h1>Sheikh Farhan Khan</h1>
+            <h2 class="subtitle">IoT & Agri-Tech Engineer</h2>
+            
+            <p class="hero-desc">
+                I design intelligent systems for water monitoring, smart aquaculture, and sustainable engineering. 
+                Currently building an IoT-enabled autonomous water sampling boat to revolutionize environmental data collection.
             </p>
-            <div class="tech-stack">
-                <span>Embedded Systems</span><span>IoT</span><span>GPS</span><span>Sensors</span>
+            
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="resume.pdf" class="btn">Resume</a>
+                <a href="https://github.com/yourusername" class="btn" target="_blank">GitHub</a>
             </div>
         </div>
 
-        <div class="card">
-            <span class="folder-icon">🤖</span>
-            <h3>Autism Prediction ML Model</h3>
-            <p>
-                Built a machine learning model to predict Autism Spectrum Disorder using structured data.
-            </p>
-            <div class="tech-stack">
-                <span>Python</span><span>ML</span>
+        <div class="hero-img">
+            <div class="profile">
+                <img src="profile.jpeg" alt="Sheikh Farhan Khan Portrait">
             </div>
         </div>
+    </header>
 
-        <div class="card">
-            <span class="folder-icon">⚙️</span>
-            <h3>Grain Cleaner Machine</h3>
-            <p>
-                Designed a low-cost grain cleaning machine for small farmers.
-            </p>
-            <div class="tech-stack">
-                <span>Design</span><span>Fabrication</span>
+    <main>
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-grid">
+                <article class="card">
+                    <h3>Smart RC Boat</h3>
+                    <p>An MCU-based IoT system for GPS-guided autonomous water sampling. Features real-time monitoring of pH, turbidity, and Dissolved Oxygen (DO).</p>
+                    <div class="tech">
+                        <span>Embedded</span>
+                        <span>IoT</span>
+                        <span>GPS</span>
+                        <span>Sensors</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Autism Detection Model</h3>
+                    <p>Developed a machine learning model aimed at the early detection and screening of Autism Spectrum Disorder based on behavioral data points.</p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Data Science</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Low-Cost Grain Cleaner</h3>
+                    <p>Engineered and fabricated an affordable grain cleaning machine tailored to the needs and constraints of small-scale farmers.</p>
+                    <div class="tech">
+                        <span>Mechanical Design</span>
+                        <span>Fabrication</span>
+                        <span>Agri-Tech</span>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-    </div>
-</section>
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">C / C++</span>
+                <span class="skill">Embedded Systems</span>
+                <span class="skill">Internet of Things (IoT)</span>
+                <span class="skill">Machine Learning</span>
+                <span class="skill">Sensor Integration</span>
+                <span class="skill">GPS Telemetry</span>
+                <span class="skill">Hardware Design</span>
+            </div>
+        </section>
 
-<section id="skills">
-    <h2>Skills</h2>
+        <section id="contact" class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            
+            <p>
+                I am currently open to new opportunities in IoT, Agri-Tech, and ML. 
+                Whether you have a project in mind, a potential collaboration, or just want to discuss sustainable engineering, I'd love to hear from you.
+            </p>
+            
+            <a href="mailto:farhankhan162001@gmail.com" class="btn btn-primary">Send an Email</a>
+            <a href="https://www.linkedin.com/in/farhankhan16" class="btn" target="_blank">LinkedIn</a>
+        </section>
+    </main>
 
-    <div class="skills-container">
-        <span class="skill">Python</span>
-        <span class="skill">Machine Learning</span>
-        <span class="skill">Embedded Systems</span>
-        <span class="skill">IoT</span>
-        <span class="skill">GPS</span>
-        <span class="skill">Sensors</span>
-        <span class="skill">GIS</span>
-        <span class="skill">Remote Sensing</span>
-        <span class="skill">C/C++</span>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: farhankhan162001@gmail.com</p>
-</section>
-
-<footer>
-    <p>© 2026 Sheikh Farhan Khan</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Sheikh Farhan Khan. Designed for the future.</p>
+    </footer>
 
 </body>
 </html>
