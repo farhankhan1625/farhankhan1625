@@ -1,45 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sheikh Farhan Khan | Agri-Tech & IoT Engineer</title>
-<p class="hero-desc">
-    M.Tech Scholar at IIT Kharagpur specializing in 
-    <strong>IoT, Embedded Systems, Aquacultural Engineering, and Machine Learning</strong>. 
-    I design intelligent systems for water monitoring, agri-tech, and sustainable engineering.
-</p>
-<div class="card">
-    <span class="folder-icon">🚤</span>
-    <h3>Smart RC Boat for Automated Water Sampling</h3>
-    <p>
-        Developing an <strong>MCU-based IoT system</strong> for a GPS-guided RC boat enabling 
-        autonomous navigation, multi-location and multi-depth water sampling, and real-time monitoring 
-        of pH, turbidity, and dissolved oxygen (DO) with wireless telemetry.
-    </p>
-    <div class="tech-stack">
-        <span>Embedded Systems</span><span>IoT</span><span>GPS</span><span>Telemetry</span><span>Sensors</span>
-    </div>
-</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-dark: #0a192f;
+    --bg-card: rgba(17, 34, 64, 0.7);
+    --text-main: #ccd6f6;
+    --text-muted: #8892b0;
+    --accent: #64ffda;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: var(--text-main);
+    background: linear-gradient(-45deg, #0a192f, #112240, #0a192f, #020c1b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* HERO */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 10%;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-frame {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.subtitle {
+    color: var(--accent);
+}
+
+.hero-desc {
+    color: var(--text-muted);
+    margin: 20px 0;
+}
+
+.btn {
+    border: 1px solid var(--accent);
+    padding: 10px 20px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: black;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+}
+
+/* PROJECTS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
 .card:hover {
     transform: translateY(-12px) scale(1.02);
-    border-top: 2px solid var(--accent);
-    box-shadow: 0 20px 40px -20px rgba(100, 255, 218, 0.3);
+    box-shadow: 0 20px 40px -20px rgba(100,255,218,0.3);
 }
-<div class="skills-container">
-    <span class="skill">Python</span>
-    <span class="skill">Machine Learning</span>
-    <span class="skill">Embedded Systems</span>
-    <span class="skill">IoT</span>
-    <span class="skill">GPS Systems</span>
-    <span class="skill">Sensor Integration</span>
-    <span class="skill">GIS (QGIS, ArcGIS)</span>
-    <span class="skill">Remote Sensing</span>
-    <span class="skill">MATLAB</span>
-    <span class="skill">C/C++</span>
-</div>
-<a href="https://github.com/yourusername" class="btn btn-secondary" target="_blank">GitHub</a>
-<section class="reveal">
-    <div class="section-title">
-        <h2><span style="color:var(--accent); font-family:monospace; font-size:1.5rem">03.</span> Research Interests</h2>
+
+.folder-icon {
+    font-size: 2rem;
+}
+
+.tech-stack span {
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+/* SKILLS */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    background: rgba(100,255,218,0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    header{
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SFK.</div>
+    <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
     </div>
-    <p style="color: var(--text-muted); max-width: 800px;">
-        IoT for Environmental Monitoring, Smart Aquaculture Systems, AI-driven Water Quality Prediction, 
-        Remote Sensing & GIS Analytics, Embedded System Design.
-    </p>
+</nav>
+
+<header>
+    <div class="hero-text">
+        <h1>Sheikh Farhan Khan</h1>
+        <h2 class="subtitle">Agri-Tech | IoT | ML Engineer</h2>
+
+        <p class="hero-desc">
+            M.Tech Scholar at IIT Kharagpur specializing in IoT, Embedded Systems, 
+            Aquacultural Engineering, and Machine Learning.
+        </p>
+
+        <a href="#projects" class="btn">Projects</a>
+        <a href="resume.pdf" class="btn">Resume</a>
+        <a href="https://github.com/yourusername" class="btn">GitHub</a>
+    </div>
+
+    <div class="hero-img">
+        <div class="profile-frame">
+            <img src="profile.jpeg">
+        </div>
+    </div>
+</header>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+
+        <div class="card">
+            <span class="folder-icon">🚤</span>
+            <h3>Smart RC Boat for Automated Water Sampling</h3>
+            <p>
+                Developing an MCU-based IoT system for a GPS-guided RC boat enabling 
+                multi-location, multi-depth sampling and real-time monitoring of pH, turbidity, and DO.
+            </p>
+            <div class="tech-stack">
+                <span>Embedded Systems</span><span>IoT</span><span>GPS</span><span>Sensors</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="folder-icon">🤖</span>
+            <h3>Autism Prediction ML Model</h3>
+            <p>
+                Built a machine learning model to predict Autism Spectrum Disorder using structured data.
+            </p>
+            <div class="tech-stack">
+                <span>Python</span><span>ML</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="folder-icon">⚙️</span>
+            <h3>Grain Cleaner Machine</h3>
+            <p>
+                Designed a low-cost grain cleaning machine for small farmers.
+            </p>
+            <div class="tech-stack">
+                <span>Design</span><span>Fabrication</span>
+            </div>
+        </div>
+
+    </div>
 </section>
+
+<section id="skills">
+    <h2>Skills</h2>
+
+    <div class="skills-container">
+        <span class="skill">Python</span>
+        <span class="skill">Machine Learning</span>
+        <span class="skill">Embedded Systems</span>
+        <span class="skill">IoT</span>
+        <span class="skill">GPS</span>
+        <span class="skill">Sensors</span>
+        <span class="skill">GIS</span>
+        <span class="skill">Remote Sensing</span>
+        <span class="skill">C/C++</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: farhankhan162001@gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Sheikh Farhan Khan</p>
+</footer>
+
+</body>
+</html>
