@@ -3,462 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheikh Farhan Khan | IoT & Agri-Tech Engineer</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Farhan Khan | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Professional Tech/Agri Palette */
-            --bg-main: #0f172a;        /* Deep slate */
-            --bg-surface: #1e293b;     /* Lighter slate for cards */
-            --text-primary: #f8fafc;   /* Crisp white */
-            --text-secondary: #94a3b8; /* Soft gray */
-            --accent: #10b981;         /* Emerald green (Tech + Agriculture) */
-            --accent-hover: #059669;
-            --border-color: rgba(255, 255, 255, 0.1);
+            /* Light Theme Palette */
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Palette */
+            --bg-color: #020617;
+            --surface-color: #0f172a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #60a5fa;
+            --border-color: #1e293b;
+            --nav-bg: rgba(2, 6, 23, 0.9);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-primary);
-            background-color: var(--bg-main);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* --- NAVIGATION --- */
+        /* Navigation */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
+        nav ul {
             display: flex;
+            list-style: none;
             gap: 2rem;
         }
 
-        .nav-links a {
+        nav a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
+        nav a:hover {
+            color: var(--accent-color);
         }
 
-        /* --- BUTTONS --- */
-        .btn {
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Reusable Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            border-bottom: 3px solid var(--accent-color);
             display: inline-block;
-            background: transparent;
-            border: 1px solid var(--accent);
-            padding: 0.75rem 1.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            margin-right: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5rem;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        #hero h2 {
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
         .btn-primary {
-            background: var(--accent);
+            background-color: var(--accent-color);
             color: #ffffff;
+            border: 2px solid var(--accent-color);
         }
 
-        .btn:hover {
-            background: var(--accent-hover);
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
             border-color: var(--accent-hover);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
         }
 
-        /* --- LAYOUT & SECTIONS --- */
-        section {
-            padding: 6rem 8%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
         }
 
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-color);
         }
 
-        .section-title::after {
-            content: "";
-            height: 1px;
-            background: var(--border-color);
-            flex: 1;
-        }
-
-        /* --- HERO SECTION --- */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-            padding: 0 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 4rem;
-        }
-
-        .hero-text {
-            flex: 1;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-desc {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 540px;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .profile {
-            width: 320px;
-            height: 320px;
-            border-radius: 20px; /* Switched from circle to modern rounded square */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .profile::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border: 2px solid var(--accent);
-            border-radius: 20px;
-            transform: translate(15px, 15px);
-            z-index: -1;
-            transition: transform 0.3s ease;
-        }
-
-        .profile:hover::before {
-            transform: translate(10px, 10px);
-        }
-
-        .profile img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            filter: grayscale(20%) contrast(110%); /* Professional photo treatment */
-            transition: filter 0.3s ease;
-        }
-
-        .profile:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        /* --- PROJECTS --- */
-        .project-grid {
+        /* Grid Layouts */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
+        /* Cards (Projects, Experience, Education) */
         .card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
+            background-color: var(--surface-color);
             padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .card h3 {
-            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card .date {
+            font-size: 0.875rem;
+            color: var(--accent-color);
+            font-weight: 600;
             margin-bottom: 1rem;
+            display: block;
         }
 
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+        /* Highlight specific project */
+        .highlight-card {
+            border: 2px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .highlight-card::before {
+            content: "Featured";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 10px;
+            font-size: 0.8rem;
+            border-radius: 10px;
+            font-weight: bold;
         }
 
-        .tech {
+        .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-top: 1rem;
         }
 
-        .tech span {
-            font-size: 0.8rem;
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-
-        /* --- SKILLS --- */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            background: var(--bg-surface);
-            color: var(--text-primary);
+        .tech-tags span {
+            background-color: var(--bg-color);
             border: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .skill:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(16, 185, 129, 0.05);
-        }
-
-        /* --- CONTACT --- */
-        .contact {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact .section-title {
-            justify-content: center;
-        }
-
-        .contact .section-title::after {
-            display: none;
-        }
-
-        .contact p {
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
         }
 
-        /* --- FOOTER --- */
+        /* Skills Section */
+        .skills-category h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Lists for Achivements */
+        .bullet-list {
+            list-style: none;
+        }
+
+        .bullet-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Footer / Contact */
         footer {
+            background-color: var(--surface-color);
             text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            padding: 3rem 5%;
             border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
         }
 
-        /* --- ANIMATIONS & MEDIA QUERIES --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        footer p {
+            margin-bottom: 1.5rem;
         }
 
-        @media (max-width: 900px) {
-            header {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 8rem;
-                justify-content: center;
-            }
-            
-            .hero-desc {
-                margin: 0 auto 2.5rem auto;
-            }
+        .social-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+        }
 
-            .hero-img {
-                margin-bottom: 2rem;
-            }
-            
-            .profile {
-                width: 260px;
-                height: 260px;
-            }
-            
-            .nav-links {
-                display: none; /* In a real app, you'd add a hamburger menu here */
-            }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; /* Can be replaced with a hamburger menu logic if desired */ }
+            nav { justify-content: center; gap: 2rem; }
         }
     </style>
 </head>
-
 <body>
 
     <nav>
-        <div class="logo">SFK<span>.</span></div>
-        <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <div style="font-weight: 700; font-size: 1.2rem;">FK.</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
     </nav>
 
-    <header id="about">
-        <div class="hero-text">
-            <h1>Sheikh Farhan Khan</h1>
-            <h2 class="subtitle">IoT & Agri-Tech Engineer</h2>
+    <section id="hero">
+        <h1>Hi, I'm Farhan Khan.</h1>
+        <h2>M.Tech Student @ IIT Kharagpur | Ag-Tech, Embedded Systems & AI</h2>
+        <p style="max-width: 600px; margin-bottom: 2rem; color: var(--text-secondary);">
+            Bridging the gap between traditional agricultural engineering and modern technology through MCU-based systems, GIS/Remote Sensing, and Machine Learning workflows.
+        </p>
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="color: var(--text-secondary);">
+            I am currently pursuing my M.Tech at the prestigious Indian Institute of Technology (IIT) Kharagpur. I hold a B.Tech in Agricultural Engineering from Dr. PDKV Akola, where I graduated with the 1st rank and the highest CGPA. My core interests lie in developing sustainable, technology-driven solutions for real-world problems. Whether it's designing embedded systems for autonomous operations or analyzing multi-temporal satellite data using AI, I enjoy tackling complex engineering challenges from concept to execution.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <div class="grid">
             
-            <p class="hero-desc">
-                I design intelligent systems for water monitoring, smart aquaculture, and sustainable engineering. 
-                Currently building an IoT-enabled autonomous water sampling boat to revolutionize environmental data collection.
-            </p>
-            
-            <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="resume.pdf" class="btn">Resume</a>
-                <a href="https://github.com/yourusername" class="btn" target="_blank">GitHub</a>
+            <div class="card highlight-card">
+                <h3>Design & Development of Smart RC Boat</h3>
+                <span class="date">Jan 2026 – Present</span>
+                <p>Designed and programmed an MCU-based embedded system for a smart RC boat. Focuses on sensor integration, real-time control, and robust embedded architecture for aquatic environments.</p>
+                <div class="tech-tags">
+                    <span>Arduino / MCU</span>
+                    <span>C/C++</span>
+                    <span>Embedded Systems</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>AI-Assisted Surface Water Mapping</h3>
+                <span class="date">Feb 2026</span>
+                <p>Developed an AI-assisted NDWI workflow using Sentinel-2/Landsat-8 imagery to extract and delineate surface water bodies, applying ML refinement and GIS tools for accurate hydrological assessment maps.</p>
+                <div class="tech-tags">
+                    <span>Machine Learning</span>
+                    <span>Python</span>
+                    <span>QGIS</span>
+                    <span>Remote Sensing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Portable Multi-Purpose Grain Cleaner</h3>
+                <span class="date">Jan 2025 – May 2025</span>
+                <p>Designed a semi-automated grain cleaner using a slider–crank mechanism and an AC motor–driven oscillatory system. Improved post-harvest cleaning efficiency and grain quality.</p>
+                <div class="tech-tags">
+                    <span>SolidWorks</span>
+                    <span>AutoCAD</span>
+                    <span>Mechanical Design</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Block-wise Waterbody Estimation</h3>
+                <span class="date">Jan 2026 – Present</span>
+                <p>Estimated spatial distribution of waterbodies over West Bengal using multi-temporal satellite data. Conducted trend analysis to map regional hydrological patterns.</p>
+                <div class="tech-tags">
+                    <span>GIS</span>
+                    <span>Data Analysis</span>
+                    <span>Space-Time Analytics</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience & Training</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Intern</h3>
+                <p><strong>Experiential Learning Unit, Dr. PDKV Akola</strong></p>
+                <span class="date">Sep 2025 – Dec 2025</span>
+                <p>Learned post-harvest engineering techniques and food processing technologies. Gained insights into sales and marketing within the agri-food sector.</p>
+            </div>
+            <div class="card">
+                <h3>Trainee Engineer</h3>
+                <p><strong>Central Farm Machinery Training & Testing Institute, Budni</strong></p>
+                <span class="date">Sep 2023</span>
+                <p>Operated, tested, and maintained agricultural machinery and tractors. Conducted repairs on 5 HP single-cylinder diesel engines.</p>
+            </div>
+            <div class="card">
+                <h3>Research Trainee</h3>
+                <p><strong>ICAR-IISWC Research Centre, Kota</strong></p>
+                <span class="date">July 2024</span>
+                <p>Studied watershed management techniques for soil & water conservation utilizing GIS tools like Google Earth Pro and QGIS.</p>
             </div>
         </div>
+    </section>
 
-        <div class="hero-img">
-            <div class="profile">
-                <img src="profile.jpeg" alt="Sheikh Farhan Khan Portrait">
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="grid">
+            <div class="skills-category">
+                <h3>Programming & Data</h3>
+                <ul class="skill-list">
+                    <li>Python (NumPy, Pandas, Matplotlib)</li>
+                    <li>C / C++</li>
+                    <li>Machine Learning Fundamentals</li>
+                    <li>MySQL Database Management</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Tools & Software</h3>
+                <ul class="skill-list">
+                    <li>QGIS & Google Earth Pro</li>
+                    <li>Arduino & Embedded Systems</li>
+                    <li>AutoCAD & SolidWorks</li>
+                    <li>MATLAB & ANSYS</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Core Engineering</h3>
+                <ul class="skill-list">
+                    <li>Spatial-Temporal Data Analysis</li>
+                    <li>Remote Sensing & Hydrological Modeling</li>
+                    <li>Open-Channel Hydraulics</li>
+                    <li>Aquaculture System Design</li>
+                </ul>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section id="projects">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="project-grid">
-                <article class="card">
-                    <h3>Smart RC Boat</h3>
-                    <p>An MCU-based IoT system for GPS-guided autonomous water sampling. Features real-time monitoring of pH, turbidity, and Dissolved Oxygen (DO).</p>
-                    <div class="tech">
-                        <span>Embedded</span>
-                        <span>IoT</span>
-                        <span>GPS</span>
-                        <span>Sensors</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Autism Detection Model</h3>
-                    <p>Developed a machine learning model aimed at the early detection and screening of Autism Spectrum Disorder based on behavioral data points.</p>
-                    <div class="tech">
-                        <span>Python</span>
-                        <span>Machine Learning</span>
-                        <span>Data Science</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Low-Cost Grain Cleaner</h3>
-                    <p>Engineered and fabricated an affordable grain cleaning machine tailored to the needs and constraints of small-scale farmers.</p>
-                    <div class="tech">
-                        <span>Mechanical Design</span>
-                        <span>Fabrication</span>
-                        <span>Agri-Tech</span>
-                    </div>
-                </article>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Master of Technology (M.Tech)</h3>
+                <p><strong>IIT Kharagpur</strong></p>
+                <span class="date">Expected 2027</span>
+                <p>CGPA: 8.96 / 10</p>
             </div>
-        </section>
-
-        <section id="skills">
-            <h2 class="section-title">Technical Arsenal</h2>
-            
-            <div class="skills">
-                <span class="skill">Python</span>
-                <span class="skill">C / C++</span>
-                <span class="skill">Embedded Systems</span>
-                <span class="skill">Internet of Things (IoT)</span>
-                <span class="skill">Machine Learning</span>
-                <span class="skill">Sensor Integration</span>
-                <span class="skill">GPS Telemetry</span>
-                <span class="skill">Hardware Design</span>
+            <div class="card">
+                <h3>B.Tech in Agricultural Engineering</h3>
+                <p><strong>Dr. PDKV Akola</strong></p>
+                <span class="date">Graduated 2025</span>
+                <p>CGPA: 8.26 / 10 | 1st Rank in Graduating Batch</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <h2 class="section-title">Let's Connect</h2>
-            
-            <p>
-                I am currently open to new opportunities in IoT, Agri-Tech, and ML. 
-                Whether you have a project in mind, a potential collaboration, or just want to discuss sustainable engineering, I'd love to hear from you.
-            </p>
-            
-            <a href="mailto:farhankhan162001@gmail.com" class="btn btn-primary">Send an Email</a>
-            <a href="https://www.linkedin.com/in/farhankhan16" class="btn" target="_blank">LinkedIn</a>
-        </section>
-    </main>
+    <section id="achievements">
+        <h2>Achievements & Leadership</h2>
+        <ul class="bullet-list">
+            <li><strong>Academic Excellence:</strong> Secured 1st rank in B.Tech (Agricultural Engineering) with the highest CGPA.</li>
+            <li><strong>GATE Recognition:</strong> Felicitated by Dr. PDCF, Akola for securing an excellent GATE rank.</li>
+            <li><strong>Leadership (IIT KGP):</strong> Manager at the Innovation and Incubation Cell and General Secretary Library at MMM Hall of Residence.</li>
+            <li><strong>Event Management:</strong> Steering Committee Member for Annual Social Gathering 2025, managing a budget of INR 5 lakh+.</li>
+            <li><strong>Technical Competitions:</strong> Vice-Captain for TIFAN 2025 Competition (Automated Vegetable Transplanter).</li>
+        </ul>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Sheikh Farhan Khan. Designed for the future.</p>
+    <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p style="color: var(--text-secondary);">I am always open to discussing tech, engineering, and innovative projects.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/farhankhan16" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            <a href="mailto:contact@example.com">Email Me</a>
+        </div>
+        <p style="margin-top: 3rem; font-size: 0.8rem; color: var(--text-secondary);">
+            &copy; 2026 Farhan Khan. All rights reserved.
+        </p>
     </footer>
 
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        
+        // Check local storage for theme preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
+            themeToggleBtn.textContent = '☀️';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = root.getAttribute('data-theme');
+            if (theme === 'dark') {
+                root.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.textContent = '🌙';
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.textContent = '☀️';
+            }
+        });
+    </script>
 </body>
 </html>
