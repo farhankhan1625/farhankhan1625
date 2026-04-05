@@ -3,31 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhan Khan | Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sheikh Farhan Khan | Professional Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* Light Theme Palette */
-            --bg-color: #fcfcfc;
-            --surface-color: #ffffff;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --accent-color: #0284c7;
-            --accent-hover: #0369a1;
-            --border-color: #e5e7eb;
-            --nav-bg: rgba(255, 255, 255, 0.95);
+            /* Light Theme Palette (Default) */
+            --bg-main: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #059669; /* Professional Emerald Green for Agri-Tech */
+            --accent-hover: #047857;
+            --border-color: #e2e8f0;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         [data-theme="dark"] {
             /* Dark Theme Palette */
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
+            --bg-main: #0f172a;
+            --bg-surface: #1e293b;
             --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent-color: #38bdf8;
-            --accent-hover: #7dd3fc;
+            --text-secondary: #94a3b8;
+            --accent: #10b981; 
+            --accent-hover: #34d399;
             --border-color: #334155;
-            --nav-bg: rgba(15, 23, 42, 0.95);
+            --nav-bg: rgba(15, 23, 42, 0.9);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --card-shadow-hover: 0 10px 20px -3px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -38,53 +46,55 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
             color: var(--text-primary);
+            background-color: var(--bg-main);
             line-height: 1.7;
             transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
-        .nav-brand {
+        .logo {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
             color: var(--text-primary);
-            letter-spacing: 0.5px;
+            text-decoration: none;
         }
+        
+        .logo span { color: var(--accent); }
 
-        nav ul {
+        .nav-links {
             display: flex;
-            list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: var(--accent-color);
-        }
+        .nav-links a:hover { color: var(--accent); }
 
         #theme-toggle {
             background: none;
@@ -94,4 +104,562 @@
             font-size: 1.2rem;
             padding: 0.5rem;
             border-radius: 50%;
-            transition:
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #theme-toggle:hover { background-color: var(--border-color); }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Layout & Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 2px;
+            background: var(--border-color);
+            flex: 1;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .hero-text { flex: 1; }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 320px;
+            height: 320px;
+            border-radius: 24px;
+            position: relative;
+            background-color: var(--border-color); /* Placeholder background */
+        }
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            transform: translate(15px, 15px);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        .profile:hover::before { transform: translate(10px, 10px); }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            filter: grayscale(10%);
+            transition: filter 0.3s ease;
+        }
+
+        .profile:hover img { filter: grayscale(0%); }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .card-highlight {
+            border: 2px solid var(--accent);
+            position: relative;
+        }
+        
+        .card-highlight::before {
+            content: "Featured";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            padding: 2px 12px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card .date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tags span {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Bullet Lists for Achievements */
+        .bullet-list { list-style: none; }
+
+        .bullet-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+        
+        .bullet-list strong { color: var(--text-primary); }
+
+        /* Contact & Footer */
+        .contact-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 6rem 5% 4rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 8rem;
+                justify-content: center;
+                min-height: auto;
+            }
+            .btn-group { justify-content: center; }
+            .hero-desc { margin: 0 auto 2.5rem auto; }
+            .hero-img { margin-bottom: 2rem; }
+            .profile { width: 260px; height: 260px; }
+            .nav-links a { display: none; } /* Hide text links on mobile */
+            .nav-links { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">SFK<span>.</span></a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="hero-text">
+            <h1>Sheikh Farhan Khan</h1>
+            <h2 class="subtitle">M.Tech Student @ IIT Kharagpur | IoT & Agri-Tech Engineer</h2>
+            <p class="hero-desc">
+                Agricultural and Aquacultural Engineering professional specializing in machine learning, spatial-temporal data analysis, embedded systems, and hydrology. Dedicated to advancing technical solutions and precision engineering, including building IoT-enabled autonomous water sampling systems.
+            </p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="mailto:farhankhan162001@gmail.com" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <div class="profile">
+                <img src="profile.jpeg" alt="Sheikh Farhan Khan">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="projects">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="grid">
+                
+                <article class="card card-highlight">
+                    <h3>Design & Development of Smart RC Boat</h3>
+                    <span class="date">Jan 2026 – Present</span>
+                    <p>Designing an MCU-based embedded system. An IoT system for GPS-guided autonomous water sampling, featuring real-time monitoring of aquatic environments.</p>
+                    <div class="tech-tags">
+                        <span>Embedded</span>
+                        <span>IoT</span>
+                        <span>C/C++</span>
+                        <span>Sensors</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>AI-Assisted Surface Water Mapping</h3>
+                    <span class="date">Feb 2026</span>
+                    <p>Developed an AI-assisted NDWI workflow using Sentinel-2/Landsat-8 imagery to extract and delineate surface water bodies, applying ML refinement and GIS tools for accurate hydrological assessment.</p>
+                    <div class="tech-tags">
+                        <span>Machine Learning</span>
+                        <span>GIS</span>
+                        <span>Python</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Autism Detection Model</h3>
+                    <span class="date">Machine Learning Project</span>
+                    <p>Developed a machine learning model aimed at the early detection and screening of Autism Spectrum Disorder based on behavioral data points.</p>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Data Science</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Portable Multi-Purpose Grain Cleaner</h3>
+                    <span class="date">Jan 2025 – May 2025</span>
+                    <p>Engineered and fabricated a semi-automated, low-cost grain cleaner using a slider-crank mechanism and AC motor-driven system tailored for small-scale farmers.</p>
+                    <div class="tech-tags">
+                        <span>Mechanical Design</span>
+                        <span>Fabrication</span>
+                        <span>Agri-Tech</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Block-wise Waterbody Estimation</h3>
+                    <span class="date">Jan 2026 – Present</span>
+                    <p>Estimated spatial distribution of waterbodies at the block level using multi-temporal satellite data. Analyzed yearly trends through spatial-temporal analysis.</p>
+                    <div class="tech-tags">
+                        <span>Remote Sensing</span>
+                        <span>Data Analysis</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Tourist Destination Mapping & Route Analysis</h3>
+                    <span class="date">Nov 2025</span>
+                    <p>Mapped and geolocated key tourist destinations in Chhindwara district using QGIS. Performed route analysis to identify optimal travel paths for tourism planning.</p>
+                    <div class="tech-tags">
+                        <span>QGIS</span>
+                        <span>Spatial Routing</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Experience & Training</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Intern</h3>
+                    <span class="date">Sep 2025 – Dec 2025</span>
+                    <p><strong>Experiential Learning Unit, Dr. PDKV</strong><br>Learned post-harvest engineering techniques and food processing technologies. Gained practical knowledge of sales and marketing in the agri-food sector.</p>
+                </article>
+                <article class="card">
+                    <h3>Trainee Engineer</h3>
+                    <span class="date">Sep 2023</span>
+                    <p><strong>Central Farm Machinery Training & Testing Institute, Budni</strong><br>Operated and maintained tractors and agricultural machinery. Repaired 5 HP single-cylinder diesel engines and learned comprehensive tractor testing methodologies.</p>
+                </article>
+                <article class="card">
+                    <h3>Research Trainee</h3>
+                    <span class="date">July 2024</span>
+                    <p><strong>ICAR-Indian Institute of Soil & Water Conservation, Kota</strong><br>Studied watershed management techniques for soil and water conservation. Worked extensively with remote sensing, Google Earth Pro, and QGIS software.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming & Data</h3>
+                    <div class="tech-tags">
+                        <span>Python (NumPy, Pandas)</span>
+                        <span>C / C++</span>
+                        <span>Machine Learning</span>
+                        <span>MySQL</span>
+                        <span>Time-Series Analysis</span>
+                        <span>Data Visualization</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Hardware</h3>
+                    <div class="tech-tags">
+                        <span>GIS & Remote Sensing</span>
+                        <span>Arduino & IoT</span>
+                        <span>AutoCAD</span>
+                        <span>SolidWorks</span>
+                        <span>MATLAB</span>
+                        <span>ANSYS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Engineering</h3>
+                    <div class="tech-tags">
+                        <span>Open-Channel Hydraulics</span>
+                        <span>Coastal Engineering</span>
+                        <span>Aquaculture System Design</span>
+                        <span>Water Quality Assessment</span>
+                        <span>Sensor Integration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Master of Technology (M.Tech)</h3>
+                    <span class="date">Expected 2027</span>
+                    <p><strong>Indian Institute of Technology (IIT) Kharagpur</strong><br>
+                    Current CGPA: 8.96 / 10</p>
+                </article>
+                <article class="card">
+                    <h3>B.Tech in Agricultural Engineering</h3>
+                    <span class="date">Graduated 2025</span>
+                    <p><strong>Dr. Panjabrao Deshmukh Krishi Vidyapeeth, Akola</strong><br>
+                    CGPA: 8.26 / 10<br>
+                    <em>Secured 1st rank in B.Tech with the highest CGPA in the graduating batch.</em></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2 class="section-title">Achievements & Leadership</h2>
+            <ul class="bullet-list">
+                <li><strong>Academic Excellence:</strong> Felicitated by Dr. PDCF, Akola for securing an outstanding GATE rank.</li>
+                <li><strong>National Representation:</strong> Represented the University at the 13th Bhartiya Chhatra Sansad 2024, MIT-WPU Pune.</li>
+                <li><strong>Technical Competitions:</strong> Vice-Captain, TIFAN 2025 Competition – Automated Vegetable Transplanter.</li>
+                <li><strong>Institutional Leadership (IIT KGP):</strong> Manager at Innovation and Incubation Cell, General Secretary Library at MMM Hall of Residence, and Media Content Team Head at GYWS.</li>
+                <li><strong>Institutional Leadership (Dr. PDKV):</strong> Prefect at Raigarh Boys Hostel and Executive Body Member at Dr. PDCF Akola.</li>
+                <li><strong>Event Management:</strong> Steering Committee Member for Annual Social Gathering 2025. Led planning and execution, overseeing an INR 5 lakh+ budget and coordinating cross-team logistics.</li>
+                <li><strong>Social Service:</strong> National Service Scheme Volunteer. Completed a 120-hour NSS special camp, contributing to community cleaning and awareness drives.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Let's Connect</h2>
+            <p>I am currently open to new opportunities in IoT, Agri-Tech, Embedded Systems, and ML. Whether you have a project in mind, a potential collaboration, or just want to discuss sustainable engineering, I'd love to hear from you.</p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="mailto:farhankhan162001@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="https://www.linkedin.com/in/farhankhan16" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn Profile</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sheikh Farhan Khan. Designed for the future.</p>
+    </footer>
+
+    <script>
+        // Light/Dark Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        
+        // Check local storage or default to dark (since dark looks great for this palette)
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        if (currentTheme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
+            themeToggleBtn.textContent = '☀️';
+        } else {
+            root.removeAttribute('data-theme');
+            themeToggleBtn.textContent = '🌙';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = root.getAttribute('data-theme');
+            if (theme === 'dark') {
+                root.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.textContent = '🌙';
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
