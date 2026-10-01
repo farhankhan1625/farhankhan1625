@@ -1,5 +1,5 @@
 // ======================= EDIT THIS FILE TO UPDATE THE SITE =======================
-// 1 PHOTO: replace public/assets/images/profile.jpeg (same filename), or change `photo` below.
+// 1 PHOTO: replace public/assets/images/profile.png (same filename), or change `photo` below.
 // 2 CV:    replace public/assets/cv/Sheikh_Farhan_Khan_ML_GenAI_CV.pdf (same filename), or change `cv`.
 // 3 EMAIL: fill `email`. Empty = no email button (none was in your CVs, so none was invented).
 // 4 LINKEDIN / 5 GITHUB: the two URLs below.   6 PROJECTS: `projects`.   7 SKILLS: `skills`.
@@ -9,7 +9,7 @@ export const profile = {
   headline: 'AI/ML & Geospatial Engineer | IoT & Aquacultural Systems',
   summary: 'M.Tech at IIT Kharagpur (Aquacultural Engineering). I build machine learning, GenAI and geospatial systems for water, climate and urban-heat problems, and design the hardware and hydraulics behind them.',
   email: '',
-  photo: B + 'assets/images/profile.jpeg',
+  photo: B + 'assets/images/profile.png',
   cv: B + 'assets/cv/Sheikh_Farhan_Khan_ML_GenAI_CV.pdf',
   linkedin: 'https://www.linkedin.com/in/farhankhan16',
   github: 'https://github.com/farhankhan1625',
